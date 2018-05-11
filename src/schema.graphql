@@ -1,0 +1,26 @@
+##
+# typeDefs: defines GraphQL Schema, 
+# with fields and datatype
+# ! make says the field can never be null
+##
+
+type Query {
+  info: String!
+  feed: [Link!]!
+  link(id: ID!): Link
+}
+
+type Mutation {
+  # create new link
+  createLink(description: String!, url: String!): Link!
+  # update link
+  updateLink(id: ID!, description: String, url: String): Link!
+  # delete link
+  deleteLink(id: ID!): [Link]
+}
+
+type Link {
+  id: ID!
+  description: String!
+  url: String!
+}
